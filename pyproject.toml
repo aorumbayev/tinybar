@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "tinybar"
+version = "0.1.0"
+description = "Tiny MacOS menu bar utility to track price dynamics for assets on TinyMan"
+authors = ["aorumbayev <aorumbayev at pm.me>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+rumps = "^0.3.0"
+py2app = "^0.26.1"
+requests = "^2.26.0"
+tinyman-py-sdk = {git = "https://github.com/tinymanorg/tinyman-py-sdk.git", rev = "main"}
+py-algorand-sdk = "^1.8.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.5"
+black = "^21.12b0"
+isort = "^5.10.1"
+autoflake8 = "^0.2.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
