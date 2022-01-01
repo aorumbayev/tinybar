@@ -11,9 +11,15 @@ OPTIONS = {
 
 setup(
     app=APP,
-    name="Stock",
+    name="TinyBar",
     data_files=DATA_FILES,
     options={"py2app": OPTIONS},
     setup_requires=["py2app"],
-    install_requires=["rumps", "requests"],
+    install_requires=[
+        "rumps",
+        "requests",
+        "tinyman-py-sdk",
+        "py-algorand-sdk",
+        "tinyman-py-sdk @ git+ssh://git@github.com/tinymanorg/tinyman-py-sdk@main#egg=tinyman-py-sdk",
+    ],
 )
