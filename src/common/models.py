@@ -1,10 +1,16 @@
-from dataclasses import dataclass
+from pydantic import BaseModel
 
 
-@dataclass
-class TinymanPoolStats:
+class TinymanPoolStats(BaseModel):
     price: str
     price_with_slippage: str
     swap_type: str
     swap_fees: str
     slippage: str
+
+
+class ASA(BaseModel):
+    id: int
+    decimals: int
+    unit_name: str
+    name: str
