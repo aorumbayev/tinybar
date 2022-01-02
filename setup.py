@@ -1,7 +1,7 @@
 from setuptools import setup
 
 APP = ["src/tinybar.py"]
-DATA_FILES = []
+DATA_FILES = ["icon.png"]
 OPTIONS = {
     "argv_emulation": True,
     "iconfile": "icon.png",

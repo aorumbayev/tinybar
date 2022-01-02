@@ -1,73 +1,121 @@
 import threading
-from typing import Dict, List
 
 import rumps
 from tinyman.v1.client import TinymanClient, TinymanMainnetClient, TinymanTestnetClient
 
-from src.common.constants import LEDGER_TYPE, TinyBarAsaDb
+from src.common.constants import (
+    ALGO,
+    LEDGER_TYPE,
+    TINYBAR_ASSETS_DB,
+    TINYBAR_DATA_PATH,
+    USDC,
+)
+from src.common.models import ASA
+from src.common.utils import save_tinybar_data
+
+rumps.debug_mode(True)
+
+ICON_PATH = "icon.png"
 
 
 class TinyBar(rumps.App):
     def __init__(self):
         super(TinyBar, self).__init__(name="TinyBar")
 
+        ### Clients setup
         self.tinyman_client: TinymanClient = (
             TinymanMainnetClient()
             if LEDGER_TYPE.lower() == "mainnet"
             else TinymanTestnetClient()
         )
 
-        self.top_asas: List[Dict[str, TinyBarAsaDb]] = {
-            "USDC": TinyBarAsaDb.USDC,
-            "YLDLY": TinyBarAsaDb.YIELDLY,
-            "AKITA": TinyBarAsaDb.AKITA_INU_TOKEN,
-            "PLANETS": TinyBarAsaDb.PLANETS,
-            "OPUL": TinyBarAsaDb.OPULOUS,
-            "AWT": TinyBarAsaDb.AWT,
-        }
+        self.asas = TINYBAR_ASSETS_DB
+        self.asa: ASA = TINYBAR_ASSETS_DB[0]
 
-        self.asa = self.top_asas["USDC"]
-        self.asa_title = self.asa.name
+        ### Menu setup
+        self.search_menuitem: rumps.MenuItem = rumps.MenuItem("🔎 Search")
+        self.menu.add(self.search_menuitem)
 
-        self.cur_sender = None
+        for asa in self.asas:
+            self.menu.add(rumps.MenuItem(asa.unit_name, callback=self._changeAsa))
 
-    @rumps.clicked("AWT")
-    @rumps.clicked("OPUL")
-    @rumps.clicked("PLANETS")
-    @rumps.clicked("AKITA")
-    @rumps.clicked("YLDLY")
-    @rumps.clicked("USDC")
-    def changeAsa(self, sender):
+        self.about_menuitem: rumps.MenuItem = rumps.MenuItem("ℹ️ About")
+        self.menu.add(self.about_menuitem)
+
+    def _changeAsa(self, sender):
         self.title = f" 🔍 {sender.title}"
-        self.asa = self.top_asas[sender.title]
-        self.asa_title = sender.title
+        self.asa = [asa for asa in self.asas if asa.unit_name == sender.title][0]
         self.getAsaPrice()
 
-    @rumps.timer(60)
-    def updateStockPrice(self, sender):
+    def _save_asa_data(self, asa: ASA):
+        self.asas.append(asa)
+        save_tinybar_data(TINYBAR_DATA_PATH, self.asas)
+
+    @rumps.clicked("🔎 Search")
+    def search(self, sender):
+        window = rumps.Window(
+            f"Current: {self.asa.unit_name} ({self.asa.id})",
+            "Enter asset ID (aka ASA ID)...",
+        )
+        window.icon = ICON_PATH
+        response = window.run()
+
+        try:
+            asa_info = self.tinyman_client.algod.asset_info(int(response.text))
+            self.asa = ASA(
+                id=asa_info["index"],
+                decimals=asa_info["params"]["decimals"],
+                unit_name=asa_info["params"]["unit-name"],
+                name=asa_info["params"]["name"],
+            )
+            self._save_asa_data(self.asa)
+            self.getAsaPrice()
+        except Exception:
+            self.title = "Invalid ASA, try again..."
+            self.asa = TINYBAR_ASSETS_DB[0]
+
+    @rumps.clicked("ℹ️ About")
+    def about(self, _):
+        rumps.alert(
+            title="TinyBar App",
+            message="Version 0.2.0 - Jan 2022 by @aorumbayev\nhttps://github.com/aorumbayev/tinybar\n\nTracking TinyMan asset prices from your MacOS menu bar\nhas never been easier!\n\n* The base currency is ALGO, app always displays USDC equivalent to selected ALGO amount from selected ASA/ALGO pair.\n\n* Refresh rate is every 60 seconds.\n\nMore features and customizations coming later...\n\nLicensed under MIT.\n\nrumps licensed under BSD 3-Clause.",
+            ok=None,
+            cancel=None,
+            icon_path=ICON_PATH,
+        )
+
+    @rumps.timer(360)
+    def updateAsaPrice(self, _):
+
         thread = threading.Thread(target=self.getAsaPrice)
         thread.start()
 
     def getAsaPrice(self):
-        algo = self.tinyman_client.fetch_asset(TinyBarAsaDb.ALGO.value)
-        asa = self.tinyman_client.fetch_asset(self.asa.value)
-        usdc = self.tinyman_client.fetch_asset(TinyBarAsaDb.USDC.value)
 
-        # Fetch the pool for selected asa and get output algo value
-        pool = self.tinyman_client.fetch_pool(algo, asa)
-        quote = pool.fetch_fixed_input_swap_quote(
-            asa(1 * pow(10, asa.decimals)), slippage=0
-        )
-        price_in_algo = quote.amount_out.amount / 1e6
+        try:
+            algo = self.tinyman_client.fetch_asset(ALGO.id)
+            asset = self.tinyman_client.fetch_asset(self.asa.id)
+            usdc = self.tinyman_client.fetch_asset(USDC.id)
 
-        # Fetch usdc pool and get usdc equivalent of algo
-        algo_usdc_pool = self.tinyman_client.fetch_pool(algo, usdc)
-        usdc_quote = algo_usdc_pool.fetch_fixed_input_swap_quote(
-            algo(price_in_algo * 1e6), slippage=0
-        )
-        price = round(usdc_quote.amount_out.amount / 1e6, 4)
+            # Fetch the pool for selected asa and get output algo value
+            pool = self.tinyman_client.fetch_pool(algo, asset)
+            quote = pool.fetch_fixed_input_swap_quote(
+                asset(1 * pow(10, asset.decimals)), slippage=0
+            )
+            price_in_algo = quote.amount_out.amount / 1e6
 
-        self.title = f"{self.asa_title}/{algo.name}: {price} 💰"
+            # Fetch usdc pool and get usdc equivalent of algo
+            algo_usdc_pool = self.tinyman_client.fetch_pool(algo, usdc)
+            usdc_quote = algo_usdc_pool.fetch_fixed_input_swap_quote(
+                algo(price_in_algo * 1e6), slippage=0
+            )
+            price = round(usdc_quote.amount_out.amount / 1e6, 4)
+
+            self.title = f"|{self.asa.unit_name}|{algo.unit_name}: {price} $|"
+        except Exception:
+            self.title = "Tinyman error, please retry"
+            if not self.asa:
+                self.asa = TINYBAR_ASSETS_DB[0]
 
 
 if __name__ == "__main__":
