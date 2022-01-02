@@ -1,7 +1,8 @@
+import json
 from os.path import exists
 from typing import List
+
 from src.common.models import ASA
-import json
 
 
 def load_tinybar_data(path: str):
