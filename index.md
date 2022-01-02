@@ -1,6 +1,6 @@
-## 📃 About
+## What is TinyBar?
 
-A simple MacOS menu bar app to display current coins from most popular Liquidity Pools on [TinyMan.org](https://tinyman.org/) 🤖
+TinyBar is a simple MacOS menu bar app to display current coins from most popular Liquidity Pools on [TinyMan.org](https://tinyman.org/) 🤖
 
 _**⚠️ NOTE: This is a pre-release version, utility is under active development.**_
 
