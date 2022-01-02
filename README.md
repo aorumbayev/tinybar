@@ -2,6 +2,7 @@
 
 <p align="center">
     <a href="https://algorand.com"><img src="https://img.shields.io/badge/Powered by-Algorand-blue.svg" alt="Frontend" /></a>
+     <a href="https://tinyman.org"><img src="https://img.shields.io/badge/Powered by-TinyMan-yellow.svg" alt="Frontend" /></a>
 </p>
 
 ## 📃 About
@@ -10,18 +11,23 @@ A simple MacOS menu bar app to display current coins from most popular Liquidity
 
 _**⚠️ NOTE: This is a pre-release version, utility is under active development.**_
 
+<p align="center">
+  <img src="https://media3.giphy.com/media/fwFmBRRBSaFl1EDXj6/giphy.gif?cid=790b761117b0b6112976e5da0ea3331f84a30b8f3137da89&rid=giphy.gif" alt="animated" />
+</p>
+
 ## Prerequisites
 
 -   [poetry](https://python-poetry.org/)
 -   [pre-commit](https://pre-commit.com/)
 
-## Quick start
+## 🚀 Quick start
 
 If you are looking for quick executable installation refer to links below:
 
--   [Get latest MacOS client]()
+-   [MacOS M1](https://github.com/aorumbayev/tinybar/releases/tag/0.1.0)
+-   MacOS Intel - TBD
 
-## Installation
+## ⚙️ Installation
 
 _(for devs/contributors only )_
 
@@ -46,10 +52,16 @@ poetry shell # activate virtual env
 pre-commit install
 ```
 
-## Testing
+4. Run tinybar in dev mode
+
+```bash
+(.venv) PYTHONPATH="." python src/tinybar.py
+```
+
+## 🧪 Testing
 
 TBD
 
-## Contribution guideline
+## 🙋‍♂️ Contribution guideline
 
 TBD
