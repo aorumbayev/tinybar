@@ -65,3 +65,11 @@ TBD
 ## 🙋‍♂️ Contribution guideline
 
 TBD
+
+## ⭐️ Stargazers
+
+Special thanks to everyone who forked or starred the repository ❤️
+
+[![Stargazers repo roster for @aorumbayev/tinybar](https://reporoster.com/stars/dark/aorumbayev/tinybar)](https://github.com/aorumbayev/tinybar/stargazers)
+
+[![Forkers repo roster for @aorumbayev/tinybar](https://reporoster.com/forks/dark/aorumbayev/tinybar)](https://github.com/aorumbayev/tinybar/network/members)
