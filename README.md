@@ -3,7 +3,9 @@
 <p align="center">
     <a href="https://algorand.com"><img src="https://img.shields.io/badge/Powered by-Algorand-blue.svg" alt="Frontend" /></a>
     <a href="https://tinyman.org"><img src="https://img.shields.io/badge/Powered by-TinyMan-yellow.svg" alt="Frontend" /></a>
-    <a href="https://aorumbayev.github.io/TinyBar/"><img src="https://img.shields.io/badge/Project-Website-Green.svg" alt="Frontend" /></a>
+    <a href="https://tinybar.app"><img src="https://img.shields.io/badge/Project-Website-Green.svg" /></a>
+    <a><img src="https://visitor-badge.glitch.me/badge?page_id=aorumbayev.tinybar&right_color=green" /></a>
+    <a href="https://algoexplorer.io/address/RKHBPXNJ2FLDLTMLY6622WFP6S7YGNATLPI2PFVULQPQBQI7C5IY3N3US4"><img src="https://img.shields.io/badge/Tips-Algo-black.svg" alt="Frontend" /></a>
 </p>
 
 ## 📃 About
