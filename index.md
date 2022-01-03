@@ -7,7 +7,11 @@ Download links for `.DMG` versions to be added soon.
 However, you can compile and run the [app manually](https://github.com/aorumbayev/tinybar) yourself.
 
 <p align="center">
-  <img width=60% src="https://media2.giphy.com/media/AuM0IkgPk8JnzBiDyM/giphy.gif?cid=790b761101f99c55847a4205e6f08d72292d3c0aa98f32d9&rid=giphy.gif" border="5" />
+  <img src="https://media2.giphy.com/media/AuM0IkgPk8JnzBiDyM/giphy.gif?cid=790b761101f99c55847a4205e6f08d72292d3c0aa98f32d9&rid=giphy.gif" alt="animated" />
+</p>
+
+<p align="center">
+  <img src="https://media3.giphy.com/media/fwFmBRRBSaFl1EDXj6/giphy.gif?cid=790b761117b0b6112976e5da0ea3331f84a30b8f3137da89&rid=giphy.gif" alt="animated" />
 </p>
 
 _**⚠️ NOTE: This is a pre-release version, utility is under active development.**_
