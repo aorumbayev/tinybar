@@ -19,5 +19,7 @@ TINYBAR_ASSETS_DB = (
         ASA(id=27165954, decimals=6, unit_name="PLANETS", name="PLANET"),
         ASA(id=287867876, decimals=6, unit_name="OPUL", name="OPULOUS"),
         ASA(id=233939122, decimals=6, unit_name="AWT", name="ALGOWORLD TOKEN"),
+        ASA(id=226701642, decimals=6, unit_name="YLDY", name="YIELDLY"),
+
     ]
 )
