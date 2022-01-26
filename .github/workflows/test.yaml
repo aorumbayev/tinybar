@@ -3,7 +3,7 @@ name: Build and Test
 on: [pull_request]
 
 jobs:
-  build-backend:
+  build-tinybar:
     name: Build & Test
     runs-on: macos-11
 
