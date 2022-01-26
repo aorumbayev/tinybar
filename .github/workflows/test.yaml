@@ -4,7 +4,7 @@ on: [pull_request]
 
 jobs:
   build-backend:
-    name: Build & test TinyBar Codebase
+    name: Build & Test
     runs-on: macos-11
 
     steps:
