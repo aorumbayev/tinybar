@@ -34,9 +34,14 @@ jobs:
     - name: Build TinyBar.app
       run: PYTHONPATH="." poetry run python3 setup.py py2app
 
+    - uses: papeloto/action-zip@v1
+      with:
+        files: dist/TinyBar.app
+        dest: TinyBar.zip
+
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
         prerelease: false
         automatic_release_tag: "latest"
-        files: dist/*.app
+        files: TinyBar.zip
