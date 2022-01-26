@@ -19,7 +19,6 @@ A simple MacOS menu bar app to display current coins from most popular Liquidity
 _**⚠️ NOTE: This is a pre-release version, utility is under active development.**_
 
 ---
-## TODO - use https://github.com/Syncplay/syncplay/blob/master/ci/macos-deploy.sh
 ## Prerequisites
 
 -   [python 3.9.x](https://www.python.org/)
