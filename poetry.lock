@@ -2,7 +2,7 @@
 name = "altgraph"
 version = "0.17.2"
 description = "Python graph (network) package"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -148,7 +148,7 @@ plugins = ["setuptools"]
 name = "macholib"
 version = "1.15.2"
 description = "Mach-O header analysis and editing"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -159,7 +159,7 @@ altgraph = ">=0.15"
 name = "modulegraph"
 version = "0.19.2"
 description = "Python module dependency analysis tool"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -250,7 +250,7 @@ pynacl = "*"
 name = "py2app"
 version = "0.26.1"
 description = "Create standalone Mac OS X applications with Python"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -451,7 +451,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "def6bf9c9db9bf020b824ff29a9f61cec1fd42799b15d07117a3b8ede7748a47"
+content-hash = "4d80c0976d8c044533539cf58ffb821647b5388b1ab4d800bba53d1e61f1d7d4"
 
 [metadata.files]
 altgraph = [
