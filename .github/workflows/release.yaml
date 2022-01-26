@@ -34,10 +34,9 @@ jobs:
     - name: Build TinyBar.app
       run: PYTHONPATH="." poetry run python3 setup.py py2app
 
-    - uses: papeloto/action-zip@v1
+    - uses: montudor/action-zip@v1
       with:
-        files: dist/TinyBar.app
-        dest: TinyBar.zip
+        args: zip -qq -r TinyBar.zip dist/TinyBar.app
 
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
