@@ -19,7 +19,7 @@ A simple MacOS menu bar app to display current coins from most popular Liquidity
 _**⚠️ NOTE: This is a pre-release version, utility is under active development.**_
 
 ---
-
+## TODO - use https://github.com/Syncplay/syncplay/blob/master/ci/macos-deploy.sh
 ## Prerequisites
 
 -   [python 3.9.x](https://www.python.org/)
@@ -30,9 +30,9 @@ _**⚠️ NOTE: This is a pre-release version, utility is under active developme
 
 If you are looking for quick executable installation refer to links below:
 
--   [MacOS M1](https://github.com/aorumbayev/tinybar/releases/tag/0.2.0)
--   MacOS Intel - TBD
+-   [MacOS latest](https://github.com/aorumbayev/tinybar/releases/tag/0.3.0)
 
+> Currently available on M1 Macs via Rosseta only.
 ### Features
 
 Be aware that by default the tool displays a `USDC` equivalent of `ALGO` after performing a swap between 1 `UNIT` of selected `ASA` and `ALGO`.

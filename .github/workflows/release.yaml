@@ -1,10 +1,14 @@
 name: TinyBar Build and Test validation
 
-on: [pull_request]
+on:
+  push:
+    # tags:
+    #   - "v*"
 
 jobs:
   build-backend:
     name: Build & test TinyBar Codebase
+    if: github.event.base_ref == 'refs/heads/main' || github.event.base_ref == 'refs/heads/infrastructure/cicd'
     runs-on: macos-11
 
     steps:
@@ -27,3 +31,17 @@ jobs:
       name: "Linters and formatters check"
       with:
         extra_args: --all-files --show-diff-on-failure
+
+    - name: Build TinyBar.app
+      run: PYTHONPATH="." poetry run python3 setup.py py2app
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: TinyBar
+        path: dist/TinyBar.app # or path/to/artifact
+
+    - uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        prerelease: false
+        files: dist/TinyBar.app

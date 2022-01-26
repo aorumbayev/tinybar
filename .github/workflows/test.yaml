@@ -1,0 +1,32 @@
+name: TinyBar Build and Test validation
+
+on: [pull_request]
+
+jobs:
+  build-backend:
+    name: Build & test TinyBar Codebase
+    runs-on: macos-11
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9.9
+
+    - name: Set up Poetry
+      uses: abatilo/actions-poetry@v2.1.4
+      with:
+          poetry-version: 1.1.6
+
+    - name: Install python dependencies
+      run: poetry install
+
+    - uses: pre-commit/action@v2.0.3
+      name: "Linters and formatters check"
+      with:
+        extra_args: --all-files --show-diff-on-failure
+
+    - name: Build TinyBar.app
+      run: PYTHONPATH="." poetry run python3 setup.py py2app

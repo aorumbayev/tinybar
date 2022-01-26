@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "tinybar"
-version = "0.2.0"
+version = "0.3.0"
 description = "Tiny MacOS menu bar utility to track price dynamics for assets on TinyMan"
 authors = ["aorumbayev <aorumbayev at pm.me>"]
 
