@@ -100,18 +100,18 @@ class TinyBar(rumps.App):
             # Fetch the pool for selected asa and get output algo value
             pool = self.tinyman_client.fetch_pool(algo, asset)
             quote = pool.fetch_fixed_input_swap_quote(
-                asset(1 * pow(10, asset.decimals)), slippage=0
+                asset(1 * pow(10, asset.decimals)), slippage=0.01
             )
-            price_in_algo = quote.amount_out.amount / 1e6
+            price_in_algo = quote.amount_out.amount
 
             # Fetch usdc pool and get usdc equivalent of algo
             algo_usdc_pool = self.tinyman_client.fetch_pool(algo, usdc)
             usdc_quote = algo_usdc_pool.fetch_fixed_input_swap_quote(
-                algo(price_in_algo * 1e6), slippage=0
+                algo(price_in_algo), slippage=0.01
             )
             price = round(usdc_quote.amount_out.amount / 1e6, 4)
 
-            self.title = f"|{self.asa.unit_name}|{algo.unit_name}: {price} $|"
+            self.title = f"|{self.asa.unit_name}|{algo.unit_name}: ${price}|"
         except Exception:
             self.title = "Tinyman error, please retry"
             if not self.asa:

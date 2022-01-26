@@ -39,4 +39,4 @@ jobs:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
         prerelease: false
         automatic_release_tag: "latest"
-        files: dist/TinyBar.app
+        files: dist/*.app
