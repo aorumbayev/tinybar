@@ -33,15 +33,17 @@ If you are looking for quick executable installation refer to links below:
 -   [MacOS latest](https://github.com/aorumbayev/tinybar/releases/tag/0.3.0)
 
 > Currently available on M1 Macs via Rosseta only.
+> Additionally, note that the .app artifact is not signed, you need to navigate to `System Preferences` -> `Security & Privacy` -> `Click lock to make changes` -> allow `TinyBar.app` to run.
 ### Features
 
 Be aware that by default the tool displays a `USDC` equivalent of `ALGO` after performing a swap between 1 `UNIT` of selected `ASA` and `ALGO`.
 
 -   ✅ - 5 Pairs available by default. _(Available)_
 -   ✅ - Add any Asset by ASA ID. _(Available)_
+-   ⚠️ - CI/CD _(Partially configured)_
 -   🚧 - Custom base currency. _(only ALGO at the moment)_
 -   🚧 - Code signed MacOS executables _(TBD)_
--   🚧 - CI/CD _(TBD)_
+
 
 ## ⚙️ Installation
 
