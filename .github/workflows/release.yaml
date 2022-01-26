@@ -1,9 +1,9 @@
-name: TinyBar Build and Test validation
+name: Release
 
 on:
   push:
-    # tags:
-    #   - "v*"
+    tags:
+      - "v*"
 
 jobs:
   build-backend:

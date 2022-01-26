@@ -1,4 +1,4 @@
-name: TinyBar Build and Test validation
+name: Build and Test
 
 on: [pull_request]
 
