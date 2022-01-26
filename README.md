@@ -19,7 +19,7 @@ A simple MacOS menu bar app to display current coins from most popular Liquidity
 _**⚠️ NOTE: This is a pre-release version, utility is under active development.**_
 
 ---
-
+## TODO - use https://github.com/Syncplay/syncplay/blob/master/ci/macos-deploy.sh
 ## Prerequisites
 
 -   [python 3.9.x](https://www.python.org/)
@@ -30,18 +30,20 @@ _**⚠️ NOTE: This is a pre-release version, utility is under active developme
 
 If you are looking for quick executable installation refer to links below:
 
--   [MacOS M1](https://github.com/aorumbayev/tinybar/releases/tag/0.2.0)
--   MacOS Intel - TBD
+-   [MacOS latest](https://github.com/aorumbayev/tinybar/releases/tag/0.3.0)
 
+> Currently available on M1 Macs via Rosseta only.
+> Additionally, note that the .app artifact is not signed, you need to navigate to `System Preferences` -> `Security & Privacy` -> `Click lock to make changes` -> allow `TinyBar.app` to run.
 ### Features
 
 Be aware that by default the tool displays a `USDC` equivalent of `ALGO` after performing a swap between 1 `UNIT` of selected `ASA` and `ALGO`.
 
 -   ✅ - 5 Pairs available by default. _(Available)_
 -   ✅ - Add any Asset by ASA ID. _(Available)_
+-   ⚠️ - CI/CD _(Partially configured)_
 -   🚧 - Custom base currency. _(only ALGO at the moment)_
 -   🚧 - Code signed MacOS executables _(TBD)_
--   🚧 - CI/CD _(TBD)_
+
 
 ## ⚙️ Installation
 
