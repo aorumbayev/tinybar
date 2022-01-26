@@ -35,7 +35,7 @@ jobs:
       run: PYTHONPATH="." poetry run python3 setup.py py2app
 
     - name: Zip executable
-      run: zip TinyBar.zip dist/TinyBar.app
+      run: zip -vr TinyBar.zip dist/TinyBar.app -x "*.DS_Store"
 
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
