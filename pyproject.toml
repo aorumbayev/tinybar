@@ -17,7 +17,7 @@ py2app = "^0.26.1"
 pytest = "^6.2.5"
 black = "^21.12b0"
 isort = "^5.10.1"
-autoflake8 = "^0.2.2"
+autoflake8 = "^0.3.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
