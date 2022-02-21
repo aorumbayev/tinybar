@@ -23,9 +23,9 @@ _**⚠️ NOTE: This is a pre-release version, utility is under active developme
 
 ## 🚀 Quick start
 
-If you are looking for quick executable installation refer to links below:
+If you are looking for quick executable installation refer to latest release from the link below:
 
--   [MacOS latest](https://github.com/aorumbayev/tinybar/releases/tag/0.3.0)
+-   [MacOS latest](https://github.com/aorumbayev/tinybar/releases/)
 
 > Currently available on M1 Macs via Rosseta only.
 > Additionally, note that the .app artifact is not signed, you need to navigate to `System Preferences` -> `Security & Privacy` -> `Click lock to make changes` -> allow `TinyBar.app` to run.
