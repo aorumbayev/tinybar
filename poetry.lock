@@ -30,11 +30,11 @@ tests_no_zope = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>
 
 [[package]]
 name = "autoflake8"
-version = "0.2.2"
+version = "0.3.1"
 description = "Tool to automatically fix some issues reported by flake8 (forked from autoflake)."
 category = "dev"
 optional = false
-python-versions = ">=3.6,<4.0"
+python-versions = ">=3.7,<4.0"
 
 [package.dependencies]
 pyflakes = ">=2.3.0"
@@ -451,7 +451,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "4d80c0976d8c044533539cf58ffb821647b5388b1ab4d800bba53d1e61f1d7d4"
+content-hash = "af212aa13ed80e8295be08a9d6a097a421703c4b52ea813dbd0dccf0cb7de4fe"
 
 [metadata.files]
 altgraph = [
@@ -467,8 +467,8 @@ attrs = [
     {file = "attrs-21.4.0.tar.gz", hash = "sha256:626ba8234211db98e869df76230a137c4c40a12d72445c45d5f5b716f076e2fd"},
 ]
 autoflake8 = [
-    {file = "autoflake8-0.2.2-py3-none-any.whl", hash = "sha256:55b9158484ead9c1ba8bc7e7c01bbda58cb186c9271746fcde80fff76fde16b7"},
-    {file = "autoflake8-0.2.2.tar.gz", hash = "sha256:a29710d947407e1da0ea39e60141af8f5e57d1db8c7d2558618d68c70c2e5fcf"},
+    {file = "autoflake8-0.3.1-py3-none-any.whl", hash = "sha256:0ad075f68b4c3166d172be7ae241a74e029ea5d39d3dca550c051b616f2fecb8"},
+    {file = "autoflake8-0.3.1.tar.gz", hash = "sha256:67292374719a8168386c5e8437d4ed7bbf05e9b47bb287f6a0498f26a13b84fe"},
 ]
 black = [
     {file = "black-21.12b0-py3-none-any.whl", hash = "sha256:a615e69ae185e08fdd73e4715e260e2479c861b5740057fde6e8b4e3b7dd589f"},
