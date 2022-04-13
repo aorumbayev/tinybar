@@ -14,7 +14,7 @@ pydantic = "^1.9.0"
 
 [tool.poetry.dev-dependencies]
 py2app = "^0.26.1"
-pytest = "^6.2.5"
+pytest = "^7.0.0"
 black = "^21.12b0"
 isort = "^5.10.1"
 autoflake8 = "^0.3.0"
