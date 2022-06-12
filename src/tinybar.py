@@ -1,6 +1,7 @@
 import threading
 
 import rumps
+from algosdk.v2client.algod import AlgodClient
 from tinyman.v1.client import TinymanClient, TinymanMainnetClient, TinymanTestnetClient
 
 from src.common.constants import (
@@ -16,6 +17,9 @@ from src.common.utils import save_tinybar_data
 rumps.debug_mode(True)
 
 ICON_PATH = "icon.png"
+ALGOD_URL = "https://mainnet-api.algonode.cloud"
+
+algod = AlgodClient("", ALGOD_URL, headers={"User-Agent": "algosdk"})
 
 
 class TinyBar(rumps.App):
@@ -24,7 +28,9 @@ class TinyBar(rumps.App):
 
         ### Clients setup
         self.tinyman_client: TinymanClient = (
-            TinymanMainnetClient()
+            TinymanMainnetClient(
+                algod,
+            )
             if LEDGER_TYPE.lower() == "mainnet"
             else TinymanTestnetClient()
         )
@@ -78,7 +84,7 @@ class TinyBar(rumps.App):
     def about(self, _):
         rumps.alert(
             title="TinyBar App",
-            message="Version 0.3.0 - Jan 2022 by @aorumbayev\nhttps://github.com/aorumbayev/tinybar\n\nTracking TinyMan asset prices from your MacOS menu bar\nhas never been easier!\n\n* The base currency is ALGO, app always displays USDC equivalent to selected ALGO amount from selected ASA/ALGO pair.\n\n* Refresh rate is every 60 seconds.\n\nUpdates are currently manual, refer to repo to get latest...\n\nLicensed under MIT.\n\nrumps licensed under BSD 3-Clause.",
+            message="Version 0.3.1 - Jun 2022 by @aorumbayev\nhttps://github.com/aorumbayev/tinybar\n\nTracking TinyMan asset prices from your MacOS menu bar\nhas never been easier!\n\n* The base currency is ALGO, app always displays USDC equivalent to selected ALGO amount from selected ASA/ALGO pair.\n\n* Refresh rate is every 60 seconds.\n\nUpdates are currently manual, refer to repo to get latest...\n\nLicensed under MIT.\n\nrumps licensed under BSD 3-Clause.",
             ok=None,
             cancel=None,
             icon_path=ICON_PATH,
