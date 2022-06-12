@@ -15,7 +15,7 @@ TINYBAR_ASSETS_DB = (
     if _data
     else [
         USDC,
-        ASA(id=384303832, decimals=6, unit_name="AKITA", name="AKITA INU TOKEN"),
+        ASA(id=230946361, decimals=6, unit_name="GEMS", name="AlgoGems"),
         ASA(id=27165954, decimals=6, unit_name="PLANETS", name="PLANET"),
         ASA(id=287867876, decimals=6, unit_name="OPUL", name="OPULOUS"),
         ASA(id=233939122, decimals=6, unit_name="AWT", name="ALGOWORLD TOKEN"),

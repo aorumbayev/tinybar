@@ -1,6 +1,7 @@
 import threading
 
 import rumps
+from algosdk.v2client.algod import AlgodClient
 from tinyman.v1.client import TinymanClient, TinymanMainnetClient, TinymanTestnetClient
 
 from src.common.constants import (
@@ -16,6 +17,9 @@ from src.common.utils import save_tinybar_data
 rumps.debug_mode(True)
 
 ICON_PATH = "icon.png"
+ALGOD_URL = "https://mainnet-api.algonode.cloud"
+
+algod = AlgodClient("", ALGOD_URL, headers={"User-Agent": "algosdk"})
 
 
 class TinyBar(rumps.App):
@@ -24,7 +28,9 @@ class TinyBar(rumps.App):
 
         ### Clients setup
         self.tinyman_client: TinymanClient = (
-            TinymanMainnetClient()
+            TinymanMainnetClient(
+                algod,
+            )
             if LEDGER_TYPE.lower() == "mainnet"
             else TinymanTestnetClient()
         )

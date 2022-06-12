@@ -395,7 +395,7 @@ pyobjc-framework-Cocoa = "*"
 
 [[package]]
 name = "tinyman-py-sdk"
-version = "0.0.5"
+version = "0.0.6"
 description = ""
 category = "main"
 optional = false
@@ -409,7 +409,7 @@ py-algorand-sdk = ">=1.6.0"
 type = "git"
 url = "https://github.com/tinymanorg/tinyman-py-sdk.git"
 reference = "main"
-resolved_reference = "c922cba801e3bdab0f3a5a5e19a25c292f16a9fd"
+resolved_reference = "458338b186ece1bae6de194e505aaa595fdbb24c"
 
 [[package]]
 name = "tomli"
