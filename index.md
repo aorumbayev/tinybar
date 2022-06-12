@@ -1,3 +1,5 @@
+<p align="center"><img  width=100%  src="https://i.imgur.com/v7r1AWr.png"  alt="687474703a2f2f6936332e74696e797069632e636f6d2f333031336c67342e706e67"  border="0" /></p>
+
 <p align="center">
     <a href="https://algorand.com"><img src="https://img.shields.io/badge/Powered by-Algorand-blue.svg" alt="Frontend" /></a>
     <a href="https://tinyman.org"><img src="https://img.shields.io/badge/Powered by-TinyMan-yellow.svg" alt="Frontend" /></a>
@@ -10,7 +12,9 @@
 
 A simple MacOS menu bar app to display current coins from most popular Liquidity Pools on [TinyMan.org](https://tinyman.org/) 🤖
 
-![Overview](https://media2.giphy.com/media/AuM0IkgPk8JnzBiDyM/giphy.gif?cid=790b761101f99c55847a4205e6f08d72292d3c0aa98f32d9&rid=giphy.gif)
+<p align="center">
+  <img width=60% src="https://media2.giphy.com/media/AuM0IkgPk8JnzBiDyM/giphy.gif?cid=790b761101f99c55847a4205e6f08d72292d3c0aa98f32d9&rid=giphy.gif" border="5" />
+</p>
 
 _**⚠️ NOTE: This is a pre-release version, utility is under active development.**_
 
@@ -23,9 +27,11 @@ _**⚠️ NOTE: This is a pre-release version, utility is under active developme
 
 ## 🚀 Quick start
 
-If you are looking for quick executable installation refer to latest release from the link below:
+If you are looking for quick executable installation refer to links below:
 
 -   [MacOS latest](https://github.com/aorumbayev/tinybar/releases/)
+
+Afterwards, you can download latest `TinyBar.zip` file and move `*.app` file to `Applications` folder.
 
 > Currently available on M1 Macs via Rosseta only.
 > Additionally, note that the .app artifact is not signed, you need to navigate to `System Preferences` -> `Security & Privacy` -> `Click lock to make changes` -> allow `TinyBar.app` to run.
@@ -77,10 +83,18 @@ pre-commit install
 (.venv) PYTHONPATH="." python3 setup.py py2app
 ```
 
+## 🧪 Testing
+
+TBD
+
+## 🙋‍♂️ Contribution guideline
+
+TBD
+
 ## ⭐️ Stargazers
 
 Special thanks to everyone who forked or starred the repository ❤️
 
-[![Stargazers repo roster for @aorumbayev/tinybar](https://reporoster.com/stars/light/aorumbayev/tinybar)](https://github.com/aorumbayev/tinybar/stargazers)
+[![Stargazers repo roster for @aorumbayev/tinybar](https://reporoster.com/stars/dark/aorumbayev/tinybar)](https://github.com/aorumbayev/tinybar/stargazers)
 
-[![Forkers repo roster for @aorumbayev/tinybar](https://reporoster.com/forks/light/aorumbayev/tinybar)](https://github.com/aorumbayev/tinybar/network/members)
+[![Forkers repo roster for @aorumbayev/tinybar](https://reporoster.com/forks/dark/aorumbayev/tinybar)](https://github.com/aorumbayev/tinybar/network/members)
