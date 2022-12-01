@@ -1,11 +1,11 @@
 [tool.poetry]
 name = "tinybar"
-version = "0.3.1"
+version = "0.3.2"
 description = "Tiny MacOS menu bar utility to track price dynamics for assets on TinyMan"
 authors = ["aorumbayev <aorumbayev at pm.me>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 rumps = "^0.3.0"
 requests = "^2.26.0"
 tinyman-py-sdk = {git = "https://github.com/tinymanorg/tinyman-py-sdk.git", rev = "main"}
