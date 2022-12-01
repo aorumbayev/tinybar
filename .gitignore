@@ -1,2 +1,11 @@
 
 .DS_Store
+.vscode
+.venv
+build
+dist
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
