@@ -33,14 +33,14 @@ tests-no-zope = ["cloudpickle", "cloudpickle", "hypothesis", "hypothesis", "mypy
 
 [[package]]
 name = "autoflake8"
-version = "0.3.2"
+version = "0.4.0"
 description = "Tool to automatically fix some issues reported by flake8 (forked from autoflake)."
 category = "dev"
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "autoflake8-0.3.2-py3-none-any.whl", hash = "sha256:db2f068766db0a747833198aee37317c3eae114948130e7a54aa5743f9261709"},
-    {file = "autoflake8-0.3.2.tar.gz", hash = "sha256:4465a10186e29830eb5df5ada7eed29fdc0918b7d8eafbb06a681236639ca695"},
+    {file = "autoflake8-0.4.0-py3-none-any.whl", hash = "sha256:f3a528a7794e9e5974b5ec342dc697c35fbc87de333603be5df6e87e828ca340"},
+    {file = "autoflake8-0.4.0.tar.gz", hash = "sha256:32520226af273e4e0b058329b19b68ea444c2f419bd9f26d633c762c5aca3500"},
 ]
 
 [package.dependencies]
@@ -864,4 +864,4 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "883c790a50301a66b952e2b4ae0848d7e544b7e0bb7880b4896d578153873c29"
+content-hash = "5625912b19ec0820e6a612fe5f65e710e36917a02744479269534d6496cc2683"
