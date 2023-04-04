@@ -1,16 +1,24 @@
 {
-    "extends": ["config:base"],
-    "ignoreDeps": [],
-    "schedule": "before 3am on the first day of the month",
-    "assignees": ["aorumbayev"],
-    "baseBranches": ["main"],
-    "separateMajorMinor": true,
-    "rebaseStalePrs": true,
-    "lockFileMaintenance": {
-        "enabled": true,
-        "extends": "schedule:monthly"
-    },
-    "docker": {
-        "enabled": true
+  "extends": ["config:base"],
+  "ignoreDeps": [],
+  "schedule": "before 3am on the first day of the month",
+  "assignees": ["aorumbayev"],
+  "baseBranches": ["main"],
+  "separateMajorMinor": true,
+  "rebaseStalePrs": true,
+  "lockFileMaintenance": {
+    "enabled": true,
+    "extends": "schedule:monthly"
+  },
+  "docker": {
+    "enabled": true
+  },
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["*"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-minor-patch"
     }
+  ]
 }
