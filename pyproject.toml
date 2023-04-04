@@ -6,7 +6,7 @@ authors = ["aorumbayev <aorumbayev at pm.me>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-rumps = "^0.3.0"
+rumps = "^0.4.0"
 requests = "^2.26.0"
 tinyman-py-sdk = {git = "https://github.com/tinymanorg/tinyman-py-sdk.git", rev = "main"}
 py-algorand-sdk = "^1.8.0"

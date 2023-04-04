@@ -1,3 +1,5 @@
+from typing import Optional
+
 from pydantic import BaseModel
 
 
@@ -14,3 +16,9 @@ class ASA(BaseModel):
     decimals: int
     unit_name: str
     name: str
+    creator: Optional[str] = None
+    manager: Optional[str] = None
+    reserve: Optional[str] = None
+    freeze: Optional[str] = None
+    total: Optional[int] = None
+    url: Optional[str] = None

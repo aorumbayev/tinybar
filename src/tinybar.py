@@ -2,7 +2,11 @@ import threading
 
 import rumps
 from algosdk.v2client.algod import AlgodClient
-from tinyman.v1.client import TinymanClient, TinymanMainnetClient, TinymanTestnetClient
+from tinyman.v2.client import (
+    BaseTinymanClient,
+    TinymanV2MainnetClient,
+    TinymanV2TestnetClient,
+)
 
 from src.common.constants import (
     ALGO,
@@ -13,8 +17,6 @@ from src.common.constants import (
 )
 from src.common.models import ASA
 from src.common.utils import save_tinybar_data
-
-rumps.debug_mode(True)
 
 ICON_PATH = "icon.png"
 ALGOD_URL = "https://mainnet-api.algonode.cloud"
@@ -27,20 +29,23 @@ class TinyBar(rumps.App):
         super(TinyBar, self).__init__(name="TinyBar")
 
         ### Clients setup
-        self.tinyman_client: TinymanClient = (
-            TinymanMainnetClient(
+        self.tinyman_client: BaseTinymanClient = (
+            TinymanV2MainnetClient(
                 algod,
             )
             if LEDGER_TYPE.lower() == "mainnet"
-            else TinymanTestnetClient()
+            else TinymanV2TestnetClient()
         )
 
         self.asas = TINYBAR_ASSETS_DB
         self.asa: ASA = TINYBAR_ASSETS_DB[0]
 
         ### Menu setup
-        self.search_menuitem: rumps.MenuItem = rumps.MenuItem("🔎 Search")
+        self.search_menuitem: rumps.MenuItem = rumps.MenuItem("➕ Add ASA")
         self.menu.add(self.search_menuitem)
+
+        self.explorer_menuitem: rumps.MenuItem = rumps.MenuItem("🔎 Explorer")
+        self.menu.add(self.explorer_menuitem)
 
         for asa in self.asas:
             self.menu.add(rumps.MenuItem(asa.unit_name, callback=self._changeAsa))
@@ -57,7 +62,7 @@ class TinyBar(rumps.App):
         self.asas.append(asa)
         save_tinybar_data(TINYBAR_DATA_PATH, self.asas)
 
-    @rumps.clicked("🔎 Search")
+    @rumps.clicked("➕ Add ASA")
     def search(self, sender):
         window = rumps.Window(
             f"Current: {self.asa.unit_name} ({self.asa.id})",
@@ -80,11 +85,57 @@ class TinyBar(rumps.App):
             self.title = "Invalid ASA, try again..."
             self.asa = TINYBAR_ASSETS_DB[0]
 
+    @rumps.clicked("🔎 Explorer")
+    def search(self, sender):
+        window = rumps.Window(
+            f"Current: {self.asa.unit_name} ({self.asa.id})",
+            "Enter asset ID (aka ASA ID)...",
+        )
+        window.icon = ICON_PATH
+        response = window.run()
+
+        try:
+            asa_info = self.tinyman_client.algod.asset_info(int(response.text))
+            asa = ASA(
+                id=asa_info["index"],
+                decimals=asa_info["params"]["decimals"],
+                unit_name=asa_info["params"]["unit-name"],
+                name=asa_info["params"]["name"],
+                manager=asa_info["params"]["manager"],
+                reserve=asa_info["params"]["reserve"],
+                freeze=asa_info["params"]["freeze"],
+                creator=asa_info["params"]["creator"],
+                total=asa_info["params"]["total"],
+                url=asa_info["params"]["url"],
+            )
+            message = (
+                f"ID: {asa.id}\n"
+                f"Unit Name: {asa.unit_name}\n"
+                f"Name: {asa.name}\n"
+                f"Total: {asa.total}\n"
+                f"URL: {asa.url}\n"
+                f"Creator: {asa.creator}\n"
+                f"Reserve: {asa.reserve}\n"
+                f"Manager: {asa.freeze}\n"
+                f"Manager: {asa.manager}\n"
+                f"https://algoscan.app/asset/{asa.id}"
+            )
+            rumps.alert(
+                title="AlgoScan URL",
+                message=message,
+                ok=None,
+                cancel=None,
+                icon_path=ICON_PATH,
+            )
+        except Exception:
+            self.title = "Invalid ASA, try again..."
+            self.asa = TINYBAR_ASSETS_DB[0]
+
     @rumps.clicked("ℹ️ About")
     def about(self, _):
         rumps.alert(
             title="TinyBar App",
-            message="Version 0.3.2 - Dec 2022 by @aorumbayev\nhttps://github.com/aorumbayev/tinybar\n\nTracking TinyMan asset prices from your MacOS menu bar\nhas never been easier!\n\n* The base currency is ALGO, app always displays USDC equivalent to selected ALGO amount from selected ASA/ALGO pair.\n\n* Refresh rate is every 60 seconds.\n\nUpdates are currently manual, refer to repo to get latest...\n\nLicensed under MIT.\n\nrumps licensed under BSD 3-Clause.",
+            message="Version 0.4.0 - Apr 2023 by @aorumbayev\nhttps://github.com/aorumbayev/tinybar\n\nTracking TinyMan asset prices from your MacOS menu bar\nhas never been easier!\n\n* The base currency is ALGO, app always displays USDC equivalent to selected ALGO amount from selected ASA/ALGO pair.\n\n* Refresh rate is every 60 seconds.\n\nUpdates are currently manual, refer to repo to get latest...\n\nLicensed under MIT.\n\nrumps licensed under BSD 3-Clause.",
             ok=None,
             cancel=None,
             icon_path=ICON_PATH,
