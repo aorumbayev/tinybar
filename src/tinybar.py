@@ -92,12 +92,10 @@ class TinyBar(rumps.App):
 
     @rumps.timer(360)
     def updateAsaPrice(self, _):
-
         thread = threading.Thread(target=self.getAsaPrice)
         thread.start()
 
     def getAsaPrice(self):
-
         try:
             algo = self.tinyman_client.fetch_asset(ALGO.id)
             asset = self.tinyman_client.fetch_asset(self.asa.id)
