@@ -9,7 +9,7 @@ python = "^3.10"
 rumps = "^0.4.0"
 requests = "^2.26.0"
 tinyman-py-sdk = {git = "https://github.com/tinymanorg/tinyman-py-sdk.git", rev = "main"}
-py-algorand-sdk = "^1.8.0"
+py-algorand-sdk = "^2.0.0"
 pydantic = "^1.9.0"
 
 [tool.poetry.dev-dependencies]

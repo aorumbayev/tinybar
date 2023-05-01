@@ -505,14 +505,14 @@ testing = ["pytest", "pytest-benchmark"]
 
 [[package]]
 name = "py-algorand-sdk"
-version = "1.20.2"
+version = "2.1.2"
 description = "Algorand SDK in Python"
 category = "main"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "py-algorand-sdk-1.20.2.tar.gz", hash = "sha256:ee5c999c5209fe5a5be8fd8b5fff16009187fc61cfd4714782e676c985aa163c"},
-    {file = "py_algorand_sdk-1.20.2-py3-none-any.whl", hash = "sha256:37079777a2eb3883f0001e0daa3eacdb7dcc0dbca5ae470ec11bbdf6acd4872f"},
+    {file = "py-algorand-sdk-2.1.2.tar.gz", hash = "sha256:d3523156374bd964c6c28f0b065d8d3f424a8480653ea388cd9ef5999bdf84e1"},
+    {file = "py_algorand_sdk-2.1.2-py3-none-any.whl", hash = "sha256:58a4fa8695b43595cf9a80f30a8ab77dde19a49a6b6a0cf0ba604cd45c18bf52"},
 ]
 
 [package.dependencies]
@@ -864,4 +864,4 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "883c790a50301a66b952e2b4ae0848d7e544b7e0bb7880b4896d578153873c29"
+content-hash = "1695b79c6c8488f7ab977e6c7bd0e8322920b030145c29b3eb0d78eba36982f0"
