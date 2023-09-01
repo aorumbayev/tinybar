@@ -9,7 +9,7 @@ on:
 jobs:
   publish-release:
     name: Publish Release
-    runs-on: macos-11
+    runs-on: macos-13
 
     steps:
       - name: Cancel Previous Runs
